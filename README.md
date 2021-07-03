@@ -1,6 +1,6 @@
 # Sing-in-SQL
 
-Let's sing and enjoy SQL queries `:musical_note:`
+Let's sing and enjoy SQL queries 🎶
 
 ## Challenges
 
