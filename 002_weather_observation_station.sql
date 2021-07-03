@@ -45,11 +45,18 @@ FROM (
 -- total no of records - number of unique records by city name
 
 -- ANSWER #4
-SELECT count(city) - count(DISTINCT city) FROM station;
+SELECT count(city) - count(DISTINCT city)
+FROM station;
 
 -- QUESTION #5
+-- Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths
+-- (i.e.: number of characters in the name). If there is more than one smallest or largest city,
+-- choose the one that comes first when ordered alphabetically.
 
 -- ANSWER #5
+SELECT (SELECT * FROM (SELECT city, LENGTH(city) FROM station ORDER BY LENGTH(city)) WHERE ROWNUM = 1),
+       (SELECT * FROM (SELECT city, LENGTH(city) FROM station ORDER BY LENGTH(city) DESC) WHERE ROWNUM = 1)
+FROM station;
 
 -- https://www.hackerrank.com/challenges/weather-observation-station-5/problem
 
