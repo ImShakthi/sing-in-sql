@@ -66,7 +66,7 @@ SELECT * FROM(SELECT city, LENGTH(city) FROM station ORDER BY LENGTH(city) DESC,
 -- where LAT_N is the northern latitude and LONG_W is the western longitude.
 
 -- ANSWER #6
-SELECT city FROM station WHERE REGEXP_LIKE (city, '^(A|E|I|O|U)(*)');
+SELECT DISTINCT city FROM station WHERE REGEXP_LIKE (city, '^(A|E|I|O|U)(*)');
 
 -- https://www.hackerrank.com/challenges/weather-observation-station-6/problem
 
@@ -80,3 +80,12 @@ SELECT DISTINCT city FROM station WHERE REGEXP_LIKE (city, '(*)(a|e|i|o|u)$');
 
 -- https://www.hackerrank.com/challenges/weather-observation-station-7/problem
 
+-- QUESTION #8
+-- Query the list of CITY names starts and ends with vowels (i.e., a, e, i, o, or u) from STATION.
+-- Your result cannot contain duplicates.
+-- where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+-- ANSWER #8
+SELECT DISTINCT city FROM station WHERE REGEXP_LIKE (city, '^(A|E|I|O|U).*(a|e|i|o|u)$');
+
+-- https://www.hackerrank.com/challenges/weather-observation-station-8/problem
