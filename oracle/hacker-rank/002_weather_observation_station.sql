@@ -54,9 +54,18 @@ FROM station;
 -- choose the one that comes first when ordered alphabetically.
 
 -- ANSWER #5
-SELECT (SELECT * FROM (SELECT city, LENGTH(city) FROM station ORDER BY LENGTH(city)) WHERE ROWNUM = 1),
-       (SELECT * FROM (SELECT city, LENGTH(city) FROM station ORDER BY LENGTH(city) DESC) WHERE ROWNUM = 1)
-FROM station;
+SELECT * FROM(SELECT city, LENGTH(city) FROM station ORDER BY LENGTH(city), city) WHERE ROWNUM = 1
+UNION
+SELECT * FROM(SELECT city, LENGTH(city) FROM station ORDER BY LENGTH(city) DESC, city) WHERE ROWNUM = 1;
 
 -- https://www.hackerrank.com/challenges/weather-observation-station-5/problem
 
+-- QUESTION #6
+-- Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION.
+-- Your result cannot contain duplicates.
+-- where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+-- ANSWER #6
+SELECT city FROM station WHERE REGEXP_LIKE (city, '^(A|E|I|O|U)(*)');
+
+-- https://www.hackerrank.com/challenges/weather-observation-station-5/problem
