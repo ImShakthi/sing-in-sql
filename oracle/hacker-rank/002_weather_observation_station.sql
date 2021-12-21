@@ -89,3 +89,40 @@ SELECT DISTINCT city FROM station WHERE REGEXP_LIKE (city, '(*)(a|e|i|o|u)$');
 SELECT DISTINCT city FROM station WHERE REGEXP_LIKE (city, '^(A|E|I|O|U).*(a|e|i|o|u)$');
 
 -- https://www.hackerrank.com/challenges/weather-observation-station-8/problem
+
+-- QUESTION #9
+-- Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+
+-- ANSWER #9
+SELECT DISTINCT city FROM station WHERE NOT REGEXP_LIKE (city, '^(!(A|E|I|O|U))(*)');
+
+-- https://www.hackerrank.com/challenges/weather-observation-station-9/problem
+
+-- QUESTION #10
+-- Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+
+-- ANSWER #10
+SELECT DISTINCT city FROM station WHERE NOT REGEXP_LIKE (city, '(*)(a|e|i|o|u)$');
+
+-- https://www.hackerrank.com/challenges/weather-observation-station-10/problem
+
+-- QUESTION #11
+-- Query the list of CITY names DOES NOT starts OR ends with vowels (i.e., a, e, i, o, or u) from STATION.
+-- Your result cannot contain duplicates.
+-- where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+-- ANSWER #11
+SELECT DISTINCT city FROM station WHERE NOT REGEXP_LIKE (city, '^(A|E|I|O|U).*(a|e|i|o|u)$');
+
+-- https://www.hackerrank.com/challenges/weather-observation-station-11/problem
+
+-- QUESTION #12
+-- Query the list of CITY names DOES NOT starts AND ends with vowels (i.e., a, e, i, o, or u) from STATION.
+-- Your result cannot contain duplicates.
+-- where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+-- ANSWER #12
+SELECT DISTINCT city FROM station WHERE NOT REGEXP_LIKE (city, '^(A|E|I|O|U)') AND NOT REGEXP_LIKE (city, '*(a|e|i|o|u)$');
+
+-- https://www.hackerrank.com/challenges/weather-observation-station-12/problem
+
